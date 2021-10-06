@@ -1,8 +1,8 @@
 using System;
 
-namespace NotShopee.Api.Entities
+namespace NotShopee.Client.Models
 {
-    public class Product
+    public class ProductViewModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
