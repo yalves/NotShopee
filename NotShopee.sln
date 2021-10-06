@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotShopee.Client", "NotShopee.Client\NotShopee.Client.csproj", "{FCB2DFEB-84FA-406D-B76D-C26D07C7EB24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotShopee.Api", "NotShopee.Api\NotShopee.Api.csproj", "{C3A8CE57-1F67-49D5-8E31-A0862BF41332}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FCB2DFEB-84FA-406D-B76D-C26D07C7EB24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCB2DFEB-84FA-406D-B76D-C26D07C7EB24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCB2DFEB-84FA-406D-B76D-C26D07C7EB24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCB2DFEB-84FA-406D-B76D-C26D07C7EB24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3A8CE57-1F67-49D5-8E31-A0862BF41332}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3A8CE57-1F67-49D5-8E31-A0862BF41332}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3A8CE57-1F67-49D5-8E31-A0862BF41332}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3A8CE57-1F67-49D5-8E31-A0862BF41332}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
