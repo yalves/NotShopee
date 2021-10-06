@@ -41,6 +41,12 @@ namespace NotShopee.Api
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "NotShopee.Api v1"));
+                
+                app.UseReDoc(c =>
+                {
+                    c.DocumentTitle = "Not Shopee";
+                    c.SpecUrl = "/swagger/v1/swagger.json";
+                });
             }
 
             app.UseHttpsRedirection();
