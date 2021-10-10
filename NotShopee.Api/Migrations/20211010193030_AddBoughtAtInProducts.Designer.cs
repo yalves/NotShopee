@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NotShopee.Api.Data;
 
 namespace NotShopee.Api.Migrations
 {
     [DbContext(typeof(StandardContext))]
-    partial class StandardContextModelSnapshot : ModelSnapshot
+    [Migration("20211010193030_AddBoughtAtInProducts")]
+    partial class AddBoughtAtInProducts
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

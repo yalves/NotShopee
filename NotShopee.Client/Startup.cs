@@ -12,6 +12,7 @@ using NotShopee.Client.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NotShopee.Client.Services;
 
 namespace NotShopee.Client
 {
@@ -34,6 +35,14 @@ namespace NotShopee.Client
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddHttpClient("NotShopee", c =>
+            {
+                c.BaseAddress = new Uri("https://localhost:5051/");
+            });
+
+            services.AddScoped<IProductsService, ProductsService>();
+            
             services.AddControllersWithViews();
         }
 
