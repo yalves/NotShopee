@@ -12,7 +12,7 @@ namespace NotShopee.Client.Services
 
         public Task<ProductViewModel> Create(ProductViewModel product);
         
-        public Task<ProductViewModel> Edit(ProductViewModel product);
+        public Task Edit(ProductViewModel product);
         
         public Task Delete(int id);
     }
