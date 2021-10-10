@@ -8,16 +8,16 @@ namespace NotShopee.Client.Services
 {
     public class ProductsService : IProductsService
     {
-        private readonly IHttpClientFactory clientFactory;
+        private readonly IHttpClientFactory _clientFactory;
 
         public ProductsService(IHttpClientFactory clientFactory)
         {
-            this.clientFactory = clientFactory;
+            _clientFactory = clientFactory;
         }
 
         public async Task<IEnumerable<ProductViewModel>> GetAll()
         {
-            var client = clientFactory.CreateClient("NotShopee");
+            var client = _clientFactory.CreateClient("NotShopee");
             var request = new HttpRequestMessage(HttpMethod.Get, "/api/Products");
             var response = await client.SendAsync(request);
 
