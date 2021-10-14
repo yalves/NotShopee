@@ -21,18 +21,18 @@ namespace NotShopee.Api.Controllers
 
         // GET: api/Products
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
+        public async Task<ActionResult<IEnumerable<Product>>> GetProducts([FromHeader] string userId)
         {
-            return await _context.Products.ToListAsync();
+            return await _context.Products.Where(x => x.UserId == userId).ToListAsync();
         }
 
         // GET: api/Products/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> GetProduct(int id)
+        public async Task<ActionResult<Product>> GetProduct(int id, [FromHeader] string userId)
         {
             var product = await _context.Products.FindAsync(id);
-
-            if (product == null)
+            
+            if (product == null || product.UserId != userId)
             {
                 return NotFound();
             }
@@ -84,10 +84,11 @@ namespace NotShopee.Api.Controllers
 
         // DELETE: api/Products/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteProduct(int id)
+        public async Task<IActionResult> DeleteProduct(int id, [FromHeader] string userId)
         {
             var product = await _context.Products.FindAsync(id);
-            if (product == null)
+            
+            if (product == null || product.UserId != userId)
             {
                 return NotFound();
             }
