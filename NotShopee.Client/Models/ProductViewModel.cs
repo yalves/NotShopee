@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 
 namespace NotShopee.Client.Models
 {
@@ -8,6 +9,8 @@ namespace NotShopee.Client.Models
         public string Name { get; set; }
         public decimal Price { get; set; }
         public string UserId { get; set; }
+        
+        [DisplayName("Bought at")]
         public DateTime BoughtAt { get; set; }
     }
 }
