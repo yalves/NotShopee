@@ -1,10 +1,13 @@
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NotShopee.Client.Models;
 using NotShopee.Client.Services;
 
 namespace NotShopee.Client.Controllers
 {
+    [Authorize]
     public class ProductsController : Controller
     {
         private readonly IProductsService _productsService; 
