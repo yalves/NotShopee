@@ -123,5 +123,13 @@ namespace NotShopee.Client.Controllers
             await _productsService.Delete(id);
             return RedirectToAction(nameof(Index));
         }
+        
+        // GET: Products/monthly
+        [Route("Products/Monthly")]
+        public async Task<IActionResult> Report()
+        {
+            var products = await _productsService.GetMonthlyReport();
+            return View(products);
+        }
     }
 }

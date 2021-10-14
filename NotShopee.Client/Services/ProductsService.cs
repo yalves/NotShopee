@@ -97,5 +97,26 @@ namespace NotShopee.Client.Services
             client.DefaultRequestHeaders.Add("userId", userId);
             await client.DeleteAsync($"/api/Products/{id}");
         }
+        
+        public async Task<IEnumerable<ProductViewModel>> GetMonthlyReport()
+        {
+            var request = new HttpRequestMessage(HttpMethod.Get, $"/api/Products/monthly");
+            var client = _clientFactory.CreateClient("NotShopee");
+            
+            var userId = _accessor?.HttpContext?.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            client.DefaultRequestHeaders.Add("userId", userId);
+            
+            var response = await client.SendAsync(request);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseJson = await response.Content.ReadAsStringAsync();
+                IEnumerable<ProductViewModel> result = 
+                    JsonConvert.DeserializeObject<List<ProductViewModel>>(responseJson);
+                return result;
+            }
+
+            return new List<ProductViewModel>();
+        }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -97,6 +98,15 @@ namespace NotShopee.Api.Controllers
             await _context.SaveChangesAsync();
 
             return NoContent();
+        }
+        
+        // GET: api/Products/monthly
+        [HttpGet]
+        [Route("monthly")]
+        public async Task<ActionResult<IEnumerable<Product>>> GetMonthlyReport([FromHeader] string userId)
+        {
+            var today = DateTime.Now.Date;
+            return await _context.Products.Where(x => x.UserId == userId && x.BoughtAt >= today.AddDays(1 - today.Day)).ToListAsync();
         }
 
         private bool ProductExists(int id)

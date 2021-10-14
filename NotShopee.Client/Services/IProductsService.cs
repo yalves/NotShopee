@@ -15,5 +15,7 @@ namespace NotShopee.Client.Services
         public Task Edit(ProductViewModel product);
         
         public Task Delete(int id);
+        
+        public Task<IEnumerable<ProductViewModel>> GetMonthlyReport();
     }
 }
